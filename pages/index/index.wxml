@@ -1,0 +1,111 @@
+ <!-- <view class='loading_box {{state?"none":""}}'>
+  <view class="loading_fade_circle"></view>
+</view>   -->
+<scroll-view class="container" scroll-y="true"  bindscroll="scroll" scroll-top="{{scrollTop}}">
+  <view class='logo'>
+    <view class='logo_text'>
+      <view class='logo_text_tit'>精致<text>网站建设</text>领航者,</view>
+      <view class='logo_text_tit'>定制<text>软件开发</text>供应商。</view>
+    </view>
+    <view class='logo_pic'>
+      <view class='logo_logo'>
+        <image src='./../../images/logo.png'></image>
+      </view>
+      <view class='logo_text'>
+        <view class='logo_item'>
+          <image src='../../images/icon/dingwei.png'></image><text>点对点 精确定位</text>
+        </view>
+        <view class='logo_item'>
+          <image src='../../images/icon/kaifa.png'></image><text>一对一 定制开发</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='cando'>
+    <view class='title'>我们能做什么</view>
+    <view class='cando_list'>
+      <view class='cando_item'  wx:for="{{canDo}}" wx:key="message">
+        <image src="{{item.icon}}"></image><text>{{item.message}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='case'>
+    <view class='title'>我们的案例</view>
+    <scroll-view class='case_list' scroll-y="true">
+      <view class='case_item' wx:for="{{caseArr}}" wx:key="">
+        <image src="{{item.img}}"></image>
+        <text>{{item.title}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='who'>
+    <view class='title'>我们是谁</view>
+    <view class='who_list'>
+      <view class='who_item'  wx:for="{{who}}" wx:key="name">
+        <image src="{{item.img}}"></image>
+        <view class='name'>{{item.name}}</view>
+        <view class='text'>
+          <view>{{item.text1}}</view>
+          <view>{{item.text2}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='serve'>
+    <view class='title'>我们的售后服务</view>
+    <view class='serve_list'>
+      <view class='serve_item'>
+        <image src='./../../images/icon/serve01.png'></image>
+        <text>免费维护项目</text>
+      </view>
+      <view class='serve_item'>
+        <image src='./../../images/icon/serve02.png'></image>
+        <text>技术支持</text>
+      </view>
+      <view class='serve_item'>
+        <image src='./../../images/icon/serve03.png'></image>
+        <text>一小时响应</text>
+      </view>
+      <view class='serve_item'>
+        <image src='./../../images/icon/serve04.png'></image>
+        <text>项目操作培训</text>
+      </view>
+    </view>
+  </view>
+  <view class='demand' id="#demand">
+    <view class='title' bindtap='ddd'>提交需求</view>
+    <form bindsubmit="formSubmit">
+      <view class='form_box'>
+        <view class='form_item'>
+            <picker name="name" bindchange="bindPickerChange" mode="selector" value="{{array[index]}}" range="{{array}}">
+            <text>网站类型</text>
+              <view class="picker" wx:if="{{array[index]}}">
+                {{array[index]}}
+              </view>
+              <view wx:else class="tit">请选择类型</view>
+            </picker>
+        </view>
+        <view class='form_item'>
+            <text>联系电话</text>
+            <view class='inp'><input name="tel" type='number' placeholder='请输入您的手机号'></input></view>
+        </view>
+      </view>
+      <button form-type='submit'>立即提交</button>
+    </form>
+  </view>
+</scroll-view>
+<view class='contact'>
+  <button bindtap="sendNeed">发布需求</button>
+  <button bindtap='contact'>电话咨询</button>
+</view>
+<view class='modal {{hidden===false?"none":""}}'>
+  <view class='modal_mask' bindtap='mask'></view>
+  <view class='modal_body'>{{error}}</view>
+</view>
+ <!-- 黑框提示并消失 -->  
+ <view bindtap='tit' hidden="{{toast1Hidden}}" style="display:{{toast1Hidden?'block':'none'}};">
+  <toast bindchange="toast1Change">  
+      {{notice_str}}  
+  </toast>  
+</view>
+    

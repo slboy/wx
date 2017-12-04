@@ -1,0 +1,2 @@
+/**app.wxss**/
+page{font-family: 'pingfang';color: #333;height: 100%;position: relative;}
